@@ -29,10 +29,7 @@ namespace Social.Models
             container.RegisterType<IHomeInjectable, HomeInjectable>();
             container.RegisterType<WeatherSoap,WeatherSoapClient>(new InjectionConstructor("WeatherSoap"));
             container.RegisterType<IUserProfileContext, UserProfileContext>();
-            
 
-            //container.RegisterType<ILogger, FakeLogger>();
-            //MvcUnityContainer.Container = container;
             return container;
         }
     }
