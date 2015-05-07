@@ -1,0 +1,22 @@
+﻿@model Social.Models.UserProfile
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => modelItem.Username)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => modelItem.FirstName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => modelItem.LastName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => modelItem.Email)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => modelItem.Address)
+    </td>
+    <td>
+        <!-- @Html.ActionLink("Add Friend", "Edit", new { id = @Model.UserId }) -->
+        <button id="btn" class="form-control">Add Friend</button>
+    </td>
+</tr>

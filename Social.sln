@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30501.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Social", "Social\Social.csproj", "{4F1878F4-3FE0-402D-BE79-A4B9895ABFC3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Authentication", "Authentication\Authentication.csproj", "{284A971E-15C6-43A0-9D36-FC34285E36C2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		CustomMembership|Any CPU = CustomMembership|Any CPU
+		Debug|Any CPU = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4F1878F4-3FE0-402D-BE79-A4B9895ABFC3}.CustomMembership|Any CPU.ActiveCfg = CustomMembership|Any CPU
+		{4F1878F4-3FE0-402D-BE79-A4B9895ABFC3}.CustomMembership|Any CPU.Build.0 = CustomMembership|Any CPU
+		{4F1878F4-3FE0-402D-BE79-A4B9895ABFC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F1878F4-3FE0-402D-BE79-A4B9895ABFC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{284A971E-15C6-43A0-9D36-FC34285E36C2}.CustomMembership|Any CPU.ActiveCfg = CustomMembership|Any CPU
+		{284A971E-15C6-43A0-9D36-FC34285E36C2}.CustomMembership|Any CPU.Build.0 = CustomMembership|Any CPU
+		{284A971E-15C6-43A0-9D36-FC34285E36C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{284A971E-15C6-43A0-9D36-FC34285E36C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

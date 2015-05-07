@@ -1,0 +1,30 @@
+﻿
+@model IEnumerable<Social.Models.UserProfile>
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+
+
+    <h2><a href="#">Friends</a> </h2>
+    <div>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque a dolor quis erat laoreet varius. In faucibus magna sit amet odio hendrerit, id feugiat velit blandit. Praesent maximus consectetur sapien, non dignissim lectus bibendum quis. Ut efficitur tincidunt tellus. Ut accumsan vel enim a bibendum. Aenean molestie dui sit amet urna tempor vulputate. Aenean malesuada semper semper. Praesent interdum ex ut libero fringilla, non commodo sapien pharetra. Donec viverra mauris ac quam elementum ullamcorper. Suspendisse at suscipit ante.
+    </div>
+
+
+    <h2><a href="#">Photos</a> </h2>
+    <div>
+        Nullam in accumsan sapien, tincidunt consectetur neque. Proin sollicitudin tincidunt felis vel gravida. Fusce in accumsan leo. Aenean lectus ex, ornare eu risus in, scelerisque feugiat felis. Integer cursus sem in neque mattis accumsan. Nunc id quam dictum augue cursus tempus. Sed a eros at velit posuere rhoncus. Fusce leo nibh, egestas id mi in, ullamcorper auctor eros. Quisque commodo porttitor turpis, ut egestas ante commodo in.
+    </div>
+
+    <h2><a href="#">Messages</a> </h2>
+    <div>
+        Nulla pretium sapien pretium quam aliquet, ut aliquet nibh commodo. Fusce fringilla viverra est, vitae tempor nulla hendrerit ac. Morbi pharetra mattis dignissim. Integer orci dolor, dapibus non tellus nec, eleifend aliquet risus. Donec feugiat et tortor sodales dignissim. Ut ipsum metus, imperdiet quis sapien non, pretium fermentum quam. Aenean ut semper nunc. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aliquam sed commodo ipsum. Nullam quis magna eu ante lobortis pellentesque. Sed molestie urna ac leo facilisis molestie. Ut semper faucibus pellentesque. Phasellus augue leo, finibus ut elit at, vulputate bibendum mauris. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam odio ex, lobortis at pharetra eu, euismod nec lorem. Integer pharetra pharetra consequat.
+    </div>
+@foreach(var item in Model)
+{
+    <li>@item.FirstName</li>
+}
+
+
