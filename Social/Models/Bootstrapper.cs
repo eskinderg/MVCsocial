@@ -13,6 +13,7 @@ namespace Social.Models
 {
     public class Bootstrapper
     {
+        public Bootstrapper() { }
         public static IUnityContainer Initialise()
         {
             var container = BuildUnityContainer();
