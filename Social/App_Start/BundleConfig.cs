@@ -16,7 +16,7 @@ namespace Social
                 "~/Scripts/angular-route.js",
                 "~/Scripts/ng-grid.js",
                 "~/Scripts/ui-grid-unstable.js",
-                "~/Scripts/angular-ui/ui-bootstrap.js"));
+                "~/Scripts/angular-ui/ui-bootstrap-tpls.js"));
 
 
             // Use the development version of Modernizr to develop with and learn from. Then, when you're

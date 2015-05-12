@@ -190,6 +190,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App\AngularController\DialogController.js" />
     <Content Include="App\AngularController\MenuController.js" />
     <Content Include="App\Wizard\WizardControllers.js" />
     <Content Include="App\AngularController\ProfileUpdateController.js" />
@@ -208,6 +209,8 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Icon.png" />
+    <Content Include="Scripts\angular-animate.js" />
+    <Content Include="Scripts\angular-animate.min.js" />
     <Content Include="Scripts\angular-mocks.js" />
     <Content Include="Scripts\angular-route.js" />
     <Content Include="Scripts\angular-route.min.js" />
@@ -230,6 +233,9 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Scripts\angular-animate.min.js.map" />
+    <Content Include="Content\ui-grid.ttf" />
+    <Content Include="Content\ui-grid.woff" />
     <None Include="Scripts\jquery-2.1.3.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -255,6 +261,7 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
     <Content Include="Template\Dashboard\Items.html" />
+    <Content Include="Template\Friends.html" />
     <Content Include="Template\Page1.html" />
     <Content Include="Template\Page2.html" />
     <Content Include="Template\Page3.html" />
@@ -292,6 +299,7 @@
     </Content>
     <None Include="Service References\CYDE\Weather.wsdl" />
     <Content Include="Views\CYDE\Index.cshtml" />
+    <Content Include="Views\Shared\_Dialog.cshtml" />
     <None Include="Web.CustomMembership.config">
       <SubType>Designer</SubType>
       <DependentUpon>Web.config</DependentUpon>
@@ -301,7 +309,9 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="packages.config" />
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\CYDE\" />
