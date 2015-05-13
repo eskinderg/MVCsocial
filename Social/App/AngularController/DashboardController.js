@@ -1,26 +1,4 @@
-﻿app.controller('FriendsController', function ($scope, theFactory, $modal) {
-
-    theFactory.getData().then(function (result) {
-
-        $scope.Users = result.data;
-    });
-
-
-    $scope.clicked = function (user) {
-        alert('You Clicked on ' + user.FirstName);
-        console.log(user);
-    }
-
-    $scope.open = function (num) {
-        alert(num);
-    };
-
-
-});
-
-
-
-
+﻿
 app.controller('DashboardController', function ($scope, theFactory) {
 
     $scope.User = null;

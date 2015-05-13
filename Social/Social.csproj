@@ -154,7 +154,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App\Dashboard\" />
     <Folder Include="App_Data\" />
     <Folder Include="Views\Weather\" />
   </ItemGroup>
@@ -192,6 +191,8 @@
   <ItemGroup>
     <Content Include="App\AngularController\DialogController.js" />
     <Content Include="App\AngularController\MenuController.js" />
+    <Content Include="App\Dashboard\FriendsController.js" />
+    <Content Include="App\Services\Dialog.js" />
     <Content Include="App\Wizard\WizardControllers.js" />
     <Content Include="App\AngularController\ProfileUpdateController.js" />
     <Content Include="Content\bootstrap-theme.css" />

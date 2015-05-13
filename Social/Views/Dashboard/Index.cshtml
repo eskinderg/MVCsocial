@@ -9,9 +9,9 @@
     <script src="~/App/AngularController/HomeController.js"></script>
     <script src="~/App/AngularController/DashboardController.js"></script>
     <script src="~/App/AngularController/MenuController.js"></script>
+    <script src="~/App/Dashboard/FriendsController.js"></script>
     <script src="~/App/AngularController/DialogController.js"></script>
-
-    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/ng-grid/2.0.11/ng-grid-reorderable.js"></script> -->
+    @*<script src="~/App/Services/Dialog.js"></script>*@
 
 }
 
@@ -49,21 +49,21 @@
             <p>First Name: &nbsp; {{user.FirstName}}</p>
             <p>Last Name: &nbsp; {{user.LastName}}</p>
             <p>E-Mail: &nbsp; {{user.Email}}</p>
-            <p><a href="#" ng-click="clicked(user)">Add</a></p>
+            <p><a href="#" ng-click="clicked(user)">View</a></p>
         </div>
 
     </div>
 
     <button class="btn btn-default" ng-click="open(1)">Open me!</button>
 
-
+    @Html.Partial("_Dialog")
 </div>
 
 <br />
 
-@Html.Partial("_Dialog")
 
 
+<br />
 
 <div ng-controller="DashboardController">
 
