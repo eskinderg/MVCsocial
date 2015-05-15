@@ -6,6 +6,10 @@
         <div class="modal-header">
             <h3 class="modal-title">{{items.FirstName}}</h3>
         </div>
+
+        <img height="100px" style="float:right;" ng-src="{{items.ProfilePicture}}" />
+
+
         <div class="modal-body">
             <ul>
                 <!--
@@ -13,6 +17,7 @@
                     <a ng-click="selected.item = item">{{ item }}</a>
                 </li>
                 -->
+                
                 <li><a ng-click="selected.item = items.FirstName">FirstName:{{items.FirstName}}</a></li>
                 <li><a ng-click="selected.item = items.LastName">LastName:{{items.LastName}}</a></li>
                 <li><a ng-click="selected.item = items.Email">E-Mail:{{items.Email}}</a></li>
@@ -20,8 +25,8 @@
             Selected: <b>{{ selected.item}}</b>
         </div>
         <div class="modal-footer">
-            <button class="btn btn-primary" ng-click="ok()">OK</button>
-            <button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+            <button class="btn btn-primary" ng-click="ok()">Save</button>
+            <button class="btn btn-primary" ng-click="cancel()">Cancel</button>
         </div>
     </script>
     <!--

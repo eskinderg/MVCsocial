@@ -28,7 +28,7 @@ namespace Social.Controllers
 
         public ActionResult About()
         {
-            Response.Write(inJectedText);
+            //Response.Write(inJectedText);
             ViewBag.Message = "Your application description page.";
 
             return View();

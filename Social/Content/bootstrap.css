@@ -3430,8 +3430,8 @@ tbody.collapse.in {
 }
 .dropdown-menu {
   position: absolute;
-  top: 100%;
-  left: 0;
+  top: 87%;
+  left: 5px;
   z-index: 1000;
   display: none;
   float: left;
@@ -5757,12 +5757,12 @@ button.close {
 }
 .modal-content {
   position: relative;
-  background-color: #fff;
+ background-color: white;
   -webkit-background-clip: padding-box;
           background-clip: padding-box;
   border: 1px solid #999;
   border: 1px solid rgba(0, 0, 0, .2);
-  border-radius: 6px;
+  /*border-radius: 6px;*/
   outline: 0;
   -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
           box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
@@ -5787,7 +5787,8 @@ button.close {
 .modal-header {
   min-height: 16.42857143px;
   padding: 15px;
-  border-bottom: 1px solid #e5e5e5;
+  background: #E9E9E9;
+  border-bottom: 1px solid #BDBDBD;
 }
 .modal-header .close {
   margin-top: -2px;
@@ -5803,7 +5804,7 @@ button.close {
 .modal-footer {
   padding: 15px;
   text-align: right;
-  border-top: 1px solid #e5e5e5;
+  border-bottom: 1px solid #BDBDBD;
 }
 .modal-footer .btn + .btn {
   margin-bottom: 0;

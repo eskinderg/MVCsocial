@@ -301,6 +301,7 @@
     <None Include="Service References\CYDE\Weather.wsdl" />
     <Content Include="Views\CYDE\Index.cshtml" />
     <Content Include="Views\Shared\_Dialog.cshtml" />
+    <Content Include="Views\Shared\_MenuButton.cshtml" />
     <None Include="Web.CustomMembership.config">
       <SubType>Designer</SubType>
       <DependentUpon>Web.config</DependentUpon>
@@ -350,7 +351,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>60660</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:60660/</IISUrl>
+          <IISUrl>http://localhost:60660</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

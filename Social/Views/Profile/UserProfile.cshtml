@@ -6,7 +6,7 @@
 
 @section scripts
 {
-    @Scripts.Render("~/bundles/jqueryval")
+    @*@Scripts.Render("~/bundles/jqueryval")*@
     <script src="~/App/AngularController/ProfileUpdateController.js"></script>
 
 }
@@ -90,7 +90,7 @@
 <div ng-controller="ProfileUpdateController">
    <!-- <form novalidate class="simple-form"> -->
 
-        Username: <input class="form-control" type="text" ng-model="user.Username" /><br />
+        @*Username: <input class="form-control" type="text" ng-model="user.Username" /><br />*@
         FirstName: <input class="form-control" type="text" ng-model="user.FirstName" /><br />
         LastName: <input class="form-control" type="text" ng-model="user.LastName" /><br />
         Email: <input class="form-control" type="email" ng-model="user.Email" /><br />

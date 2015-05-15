@@ -8,7 +8,7 @@
 {
     <script src="~/App/AngularController/HomeController.js"></script>
     <script src="~/App/AngularController/DashboardController.js"></script>
-    <script src="~/App/AngularController/MenuController.js"></script>
+    @*<script src="~/App/AngularController/MenuController.js"></script>*@
     <script src="~/App/Dashboard/FriendsController.js"></script>
     <script src="~/App/AngularController/DialogController.js"></script>
     @*<script src="~/App/Services/Dialog.js"></script>*@
@@ -20,22 +20,7 @@
 
 <h2>Index</h2>
 
-<div ng-controller="MenuController" style="float:right;">
-    <div class="btn-group" dropdown>
-        <button type="button" class="btn btn-danger">Action</button>
-        <button type="button" class="btn btn-danger dropdown-toggle" dropdown-toggle>
-            <span class="caret"></span>
-            <span class="sr-only">Split button!</span>
-        </button>
-        <ul class="dropdown-menu" role="menu">
-            <li><a href="#">Action</a></li>
-            <li><a href ng-click="menuClicked()">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-        </ul>
-    </div>
-</div>
+
 
 <br />
 
@@ -45,11 +30,11 @@
 
     <div ng-repeat="user in Users | filter:query" style="width:250px;display:inline-block; margin:10px;">
 
-        <div style="padding:5px; border:1px solid grey;font-size:10px;">
+        <div class="friendsdiv" style="padding:18px;">
             <p>First Name: &nbsp; {{user.FirstName}}</p>
             <p>Last Name: &nbsp; {{user.LastName}}</p>
             <p>E-Mail: &nbsp; {{user.Email}}</p>
-            <p><a href="#" ng-click="clicked(user)">View</a></p>
+            <p><a href="#" ng-click="open(user)">View</a></p>
         </div>
 
     </div>
@@ -86,7 +71,7 @@
 
 
 
-
+<!--
 
 <div ng-controller="Grid2Controller">
 
@@ -101,6 +86,7 @@
 
 </div>
 
+-->
 
 
 

@@ -1,47 +1,44 @@
-﻿app.controller('FriendsController', function ($scope, theFactory, $modal, $log) {
+﻿app.controller('DialogController', function ($scope, $modal, $log) {
 
-    theFactory.getData().then(function (result) {
+    $scope.items = ['item1', 'item2', 'item3'];
 
-        $scope.Users = result.data;
-    });
+    $scope.animationsEnabled = true;
 
-
-
-
-    $scope.open = function (user) {
+    $scope.open = function (size) {
 
         var modalInstance = $modal.open({
-            animation: true,
+            animation: $scope.animationsEnabled,
             templateUrl: 'myModalContent.html',
             controller: 'ModalInstanceCtrl',
+            size: size,
             resolve: {
                 items: function () {
-                    return user;
+                    return $scope.items;
                 }
             }
         });
-
 
         modalInstance.result.then(function (selectedItem) {
             $scope.selected = selectedItem;
         }, function () {
             $log.info('Modal dismissed at: ' + new Date());
         });
+    };
 
-    }
-
-
+    $scope.toggleAnimation = function () {
+        $scope.animationsEnabled = !$scope.animationsEnabled;
+    };
 
 });
 
 
 
-app.controller('ModalInstanceCtrl', function ($scope, $modalInstance, user) {
 
-    $scope.user = user;
+app.controller('ModalInstanceCtrl', function ($scope, $modalInstance, items) {
 
+    $scope.items = items;
     $scope.selected = {
-        item: $scope.user[0]
+        item: $scope.items[0]
     };
 
     $scope.ok = function () {

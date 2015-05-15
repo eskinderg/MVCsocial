@@ -1,0 +1,12 @@
+﻿    <div ng-controller="MenuController" class="btn-group" dropdown is-open="status.isopen" style="padding: 7px;">
+      <button type="button" class="btn btn-primary dropdown-toggle" dropdown-toggle ng-disabled="disabled">
+        Account <span class="caret"></span>
+      </button>
+      <ul class="dropdown-menu" role="menu">
+        <li>@Html.ActionLink("MyProfile", "UserProfile", "Profile")</li>
+        <li><a href="#" ng-click="menuClicked()">Another action</a></li>
+        <li><a href="#">Something else here</a></li>
+        <li class="divider"></li>
+        <li>@Html.ActionLink("Logout " + User.Identity.Name, "Logout", "Account")</li>
+      </ul>
+    </div>

@@ -20,7 +20,7 @@ namespace Social.Models
     {
         public DbSet<UserProfile> UserProfile { get; set; }
 
-        public int SaveChanges() { return base.SaveChanges(); }
+        public override int SaveChanges() { return base.SaveChanges(); }
 
         //public System.Data.Entity.DbSet<Social.Models.Login> Logins { get; set; }
     }
