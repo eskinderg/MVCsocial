@@ -7,8 +7,8 @@ using System.Data.Entity;
 
 namespace Social.Models
 {
-    public class UserFriendsContext:DbContext
-    {
-        public DbSet<UserFriends> UserFriends { get; set; }
-    }
+//    public class UserFriendsContext:DbContext
+//    {
+//        public DbSet<UserFriends> UserFriends { get; set; }
+//    }
 }

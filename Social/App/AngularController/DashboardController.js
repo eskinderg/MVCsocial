@@ -11,6 +11,7 @@ app.controller('DashboardController', function ($scope, theFactory) {
     theFactory.getData().then(function (result) {
 
         $scope.myData = result.data;
+        console.log(result);
 
     });
 
@@ -21,6 +22,14 @@ app.controller('DashboardController', function ($scope, theFactory) {
         selectedItems: $scope.mySelections,
         enableCellEdit: true,
         enableColumnResize: true,
+        columnDefs:
+            [
+                /*{field: 'Id', displayName: 'UserId',width:90},*/
+                { field: 'FirstName', displayName: 'FirstName'},
+                { field: 'LastName', displayName: 'LastName'},
+                {field: 'Email', displayName: 'EMail'},
+                
+            ]
 
     };
 

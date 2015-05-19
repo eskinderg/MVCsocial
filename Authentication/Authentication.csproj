@@ -56,6 +56,15 @@
       <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.IdentityModel.Extensions, Version=2.0.0.0, Culture=neutral, PublicKeyToken=69c3241e6f0468ca, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
@@ -76,7 +85,26 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppUser.cs" />
     <Compile Include="CustomMembershipProvider.cs" />
+    <Compile Include="IdentityModels.cs" />
+    <Compile Include="Migrations\201505170123211_InitialCreate.cs" />
+    <Compile Include="Migrations\201505170123211_InitialCreate.Designer.cs">
+      <DependentUpon>201505170123211_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201505171314037_Migration-Name-whatever-you-want.cs" />
+    <Compile Include="Migrations\201505171314037_Migration-Name-whatever-you-want.Designer.cs">
+      <DependentUpon>201505171314037_Migration-Name-whatever-you-want.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201505181529243_Added Address.cs" />
+    <Compile Include="Migrations\201505181529243_Added Address.Designer.cs">
+      <DependentUpon>201505181529243_Added Address.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201505191221122_Roles.cs" />
+    <Compile Include="Migrations\201505191221122_Roles.Designer.cs">
+      <DependentUpon>201505191221122_Roles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -84,6 +112,20 @@
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201505170123211_InitialCreate.resx">
+      <DependentUpon>201505170123211_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201505171314037_Migration-Name-whatever-you-want.resx">
+      <DependentUpon>201505171314037_Migration-Name-whatever-you-want.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201505181529243_Added Address.resx">
+      <DependentUpon>201505181529243_Added Address.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201505191221122_Roles.resx">
+      <DependentUpon>201505191221122_Roles.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

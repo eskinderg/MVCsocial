@@ -6,16 +6,27 @@ using System.Web.Mvc;
 using Social.Models;
 using WebMatrix.WebData;
 using System.Data.Entity;
+using Microsoft.Owin.Security;
+using Authentication;
+using Microsoft.AspNet.Identity;
 
 namespace Social.Controllers
 {
     public class ProfileController : Controller
     {
-        IUserProfileContext context = null;
+        private readonly IAuthenticationManager _authenticationManager;
+        private readonly UserManager<ApplicationUser> _userManager;
+        //private readonly IUserProfileContext context = null;
+        private readonly IUserStore<ApplicationUser> _userStore;
 
-        public ProfileController(IUserProfileContext dataContext)
+        public ProfileController(IUserProfileContext dataContext,IUserStore<ApplicationUser> userStore, 
+            IAuthenticationManager authenticationManager)
         {
-            this.context = dataContext;
+            //this.context = dataContext;
+            _userManager = new UserManager<ApplicationUser>(userStore);
+            _authenticationManager = authenticationManager;
+            this._userStore = userStore;
+
         }
         
         public ActionResult Index()
@@ -27,21 +38,26 @@ namespace Social.Controllers
         [Authorize]
         public ActionResult UserProfile()
         {
-            UserProfile profile = context.UserProfile.Where(p => p.UserId == WebSecurity.CurrentUserId).SingleOrDefault();
-
-            return View(profile);
+            //UserProfile profile = context.UserProfile.Where(p => p.UserId == WebSecurity.CurrentUserId).SingleOrDefault();
+            //string id = _userManager.FindByName(User.Identity.Name).;
+            ApplicationUser user = _userManager.FindByName(User.Identity.Name);
+            //Response.Write(user.LastName);
+            return View(user);
+            //return View(profile);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult UserProfile(UserProfile model )
+        public ActionResult UserProfile(ApplicationUser model )
         {
             if (ModelState.IsValid)
             {
-                UserProfile profileToUpdate = context.UserProfile.Where(p => p.UserId == WebSecurity.CurrentUserId).SingleOrDefault();
+                //ApplicationUser profileToUpdate = _userManager.FindByName(User.Identity.Name); //context.UserProfile.Where(p => p.UserId == WebSecurity.CurrentUserId).SingleOrDefault();
 
-                UpdateModel(profileToUpdate);
-                context.SaveChanges();
+                ////UpdateModel(profileToUpdate);
+                //_userManager.Update(profileToUpdate);
+                
+                ////context.SaveChanges();
                 return View(model);
             }
             else
@@ -51,16 +67,24 @@ namespace Social.Controllers
             }
         }
 
+        [Authorize]
         [HttpPost]
-        public JsonResult Update(UserProfile user)
+        public JsonResult Update(ApplicationUser user)
         {
             if (ModelState.IsValid)
             {
-                UserProfile profileToUpdate = context.UserProfile.Where(p => p.UserId == WebSecurity.CurrentUserId).SingleOrDefault();
+                ApplicationUser profileToUpdate = _userManager.FindByName(user.UserName);
+                
+                profileToUpdate.FirstName = user.FirstName;
+                profileToUpdate.LastName = user.LastName;
+                profileToUpdate.Email = user.Email;
+                profileToUpdate.Address = user.Address;
 
-                UpdateModel(profileToUpdate);
-                context.SaveChanges();
-                return Json(user);
+                _userManager.Update(profileToUpdate);
+                //UpdateModel(profileToUpdate);
+                
+                //context.SaveChanges();
+                return Json(profileToUpdate);
             }
             else
             {
@@ -68,6 +92,15 @@ namespace Social.Controllers
                 return Json(user);
             }
         }
+
+
+        public JsonResult GetProfile()
+        {
+            var json = _userManager.FindByName(User.Identity.Name);
+
+            return Json(json, JsonRequestBehavior.AllowGet);
+        }
+
 
 	}
 }

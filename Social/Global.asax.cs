@@ -8,6 +8,7 @@ using System.Web.Routing;
 using WebMatrix.WebData;
 using System.Data.Entity;
 using Social.Models;
+using Authentication;
    
 
 namespace Social
@@ -17,7 +18,7 @@ namespace Social
         protected void Application_Start()
         {
             Database.SetInitializer<Social.Models.UserProfileContext>(null);
-            Database.SetInitializer<Social.Models.UserFriendsContext>(null);
+            //Database.SetInitializer<Social.Models.UserFriendsContext>(null);
 
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
@@ -26,10 +27,11 @@ namespace Social
 
 
             Bootstrapper.Initialise();
-           // ControllerBuilder.Current.SetControllerFactory(typeof(ControllerFactory));
 
 
-            WebSecurity.InitializeDatabaseConnection("DBConn", "User", "UserId", "Username", true);
+            //WebSecurity.InitializeDatabaseConnection("DBConn", "User", "UserId", "Username", true);
+
+            Database.SetInitializer<ApplicationDbContext>(null);
         }
     }
 }

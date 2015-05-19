@@ -5,15 +5,15 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
-namespace Social.Models
+namespace Authentication
 {
-    [Table("User")]
-    public class UserProfile
+    [Table("AspNetUsers")]
+    public class AppUser
     {
         [Key]
-        public int UserId { get; set; }
+        public int Id { get; set; }
 
-        public string Username { get; set; }
+        public string UserName { get; set; }
 
         public string FirstName { get; set; }
 

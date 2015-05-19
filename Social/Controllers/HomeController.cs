@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Social.Models;
+using Authentication;
 
 namespace Social.Controllers
 {
@@ -21,7 +22,7 @@ namespace Social.Controllers
 
         public ActionResult Index()
         {
-            IEnumerable<UserProfile> users = context.UserProfile;
+            IEnumerable<AppUser> users = context.UserProfile;
             
             return View(users);
         }

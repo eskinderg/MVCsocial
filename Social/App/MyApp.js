@@ -25,7 +25,7 @@ app.factory('UserProfile', function ($http) {
         return $http(
             {
                 method: "GET",
-                url: "/Dashboard/GetLastUserOnly",
+                url: "/Profile/GetProfile",
                 cache: false
             });
     }
@@ -46,8 +46,8 @@ app.factory('UpdateUserProfile', function ($http) {
                 url: "/Profile/Update",
                 data:
                     {
-                        UserId: user.UserId,
-                        Username: user.Username,
+                        UserId: user.Id,
+                        Username: user.UserName,
                         FirstName: user.FirstName,
                         LastName: user.LastName,
                         Email: user.Email,

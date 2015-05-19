@@ -6,6 +6,9 @@ using System.Web.Mvc;
 using Social.Models;
 using WebMatrix.WebData;
 using WebMatrix.Data;
+using Microsoft.AspNet.Identity;
+using Authentication;
+using Microsoft.Owin.Security;
 
 namespace Social.Controllers
 {
@@ -13,31 +16,47 @@ namespace Social.Controllers
     public class DashboardController : Controller
     {
         
-        private IUserProfileContext context = null;
+        //private IUserProfileContext context = null;
 
-        
-        public DashboardController(IUserProfileContext dataContext)
+        private readonly IAuthenticationManager _authenticationManager;
+        private readonly UserManager<ApplicationUser> _userManager;
+        private readonly IUserStore<ApplicationUser> _userStore;
+
+        public DashboardController(IUserProfileContext dataContext, 
+            IUserStore<ApplicationUser> userStore,
+            IAuthenticationManager authenticationManager)
         {
-            this.context = dataContext;
+            //this.context = dataContext;
+
+            _userManager = new UserManager<ApplicationUser>(userStore);
+            _authenticationManager = authenticationManager;
+            _userStore = userStore;
         }
 
         public ActionResult Index()
         {
-            IEnumerable<UserProfile> list = context.UserProfile;
+            //IEnumerable<UserProfile> list = context.UserProfile;
+
+            IEnumerable<ApplicationUser> list = _userManager.Users;
 
             return View(list);
         }
 
         public JsonResult GetLastUser()
         {
-            var json = context.UserProfile;
+
+            //List<AppUser> json = new List<AppUser>(); //context.UserProfile;
+
+            //json.Add(new AppUser { UserName = "Jonny", LastName = "Begood" });
+            var json = _userManager.Users.ToList();
             return Json(json, JsonRequestBehavior.AllowGet);
         }
 
         public JsonResult GetLastUserOnly()
         {
-            var json = context.UserProfile.Where(e=>e.UserId== WebSecurity.CurrentUserId);
-            return Json(json, JsonRequestBehavior.AllowGet);
+            //var json = context.UserProfile.Where(e=>e.Id== WebSecurity.CurrentUserId);
+            //return Json(json, JsonRequestBehavior.AllowGet);
+            return Json(null);
         }
 
 	}

@@ -5,7 +5,7 @@
         //$scope.master = angular.copy(user);
 
         UpdateUserProfile.postData(user).then(function (result) {
-            alert("Sucusssfully Update + " + result.data.Username);
+            alert("Sucusssfully Update + " + result.data.UserName);
         });
     };
 
@@ -15,7 +15,7 @@
     };
     //$scope.reset();
     UserProfile.getData().then(function (result) {
-        $scope.user = result.data[0];
+        $scope.user = result.data;
 
         $scope.clicked = function (user) {
 
