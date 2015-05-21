@@ -62,5 +62,34 @@ app.factory('UpdateUserProfile', function ($http) {
 });
 
 
+app.factory('GetDefinition', function ($http) {
+
+    var fact = {};
+    fact.postData = function (word) {
+        return $http(
+            {
+                method: "POST",
+                url: "/WebApi/GetDefinition",
+                data:
+                    {
+                        word: word
+                    }
+            });
+    }
+
+    return fact;
+
+});
+
+
+
+//app.factory('DictionaryFactory', function ($http) {
+//    return {
+//        getDefinition: function (callback) {
+//            $http.get('/api/define').success(callback);
+//        }
+//    }
+//})
+
 
 

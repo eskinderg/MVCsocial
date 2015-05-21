@@ -13,6 +13,8 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin.Security;
 using System.Web;
+using Social.DictionaryService;
+using System.Web.Http;
 
 
 namespace Social.Models
@@ -23,7 +25,7 @@ namespace Social.Models
         public static IUnityContainer Initialise()
         {
             var container = BuildUnityContainer();
-
+            
             DependencyResolver.SetResolver(new UnityDependencyResolver(container));
             return container;
         }
@@ -35,7 +37,8 @@ namespace Social.Models
             container.RegisterType<IWeatherService, WeatherService>(new InjectionConstructor(23145));
             container.RegisterType<IHomeInjectable, HomeInjectable>();
             container.RegisterType<WeatherSoap,WeatherSoapClient>(new InjectionConstructor("WeatherSoap"));
-            container.RegisterType<IUserProfileContext, UserProfileContext>();
+
+            container.RegisterType<IUserProfileContext, UserProfileContext>(new HierarchicalLifetimeManager());// HierarchialLigetimeManager Auto dispose elements
 
   
             var accountInjectionConstructor = new InjectionConstructor(new ApplicationDbContext());
@@ -45,7 +48,16 @@ namespace Social.Models
 
             container.RegisterType<IAuthenticationManager>(new InjectionFactory(o => HttpContext.Current.GetOwinContext().Authentication));
 
+
+            container.RegisterType<DictServiceSoap, DictServiceSoapClient>(new InjectionConstructor("DictServiceSoap"));
+
+            //Dependecy for the webApicontrollers
+            GlobalConfiguration.Configuration.DependencyResolver = new Unity.WebApi.UnityDependencyResolver(container);
             
+            return container;
+        }
+    }
+}
 
             //container.RegisterType<IRoleStore<ApplicationRole>, RoleStore<ApplicationRole>>(new InjectionConstructor(typeof(ApplicationDbContext)));
 
@@ -55,7 +67,3 @@ namespace Social.Models
 
             //container.RegisterType<IRoleStore<IdentityRole>, RoleStore<IdentityRole>>(accountInjectionConstructor);
 
-            return container;
-        }
-    }
-}

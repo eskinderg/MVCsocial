@@ -26,3 +26,22 @@
 
 </div>
 
+
+
+
+
+<div ng-controller="DictionaryController">
+    <br />
+    <input class="form-control" type="text" value="search" ng-model="word" ng-change="txtChanged()" />
+
+    <div ng-repeat="definition in definitions">
+        <ul>
+            <li>{{definition.WordDefinition}}</li>
+
+        </ul>
+    </div>
+
+</div>
+
+
+

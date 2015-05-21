@@ -65,7 +65,7 @@ input[type="checkbox"].input-validation-error {
 .friendsdiv
 {
     border: 1px solid #C8C8C8;
-    box-shadow: 1px 1px 1px #CFCFCF;
+    //box-shadow: 1px 1px 1px #CFCFCF;
 }
 
 .friendsdiv > p

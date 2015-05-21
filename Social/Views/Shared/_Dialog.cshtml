@@ -11,17 +11,28 @@
 
 
         <div class="modal-body">
+            <!--
             <ul>
-                <!--
-                <li ng-repeat="item in items track by $index">
-                    <a ng-click="selected.item = item">{{ item }}</a>
-                </li>
-                -->
                 
-                <li><a ng-click="selected.item = items.FirstName">FirstName:{{items.FirstName}}</a></li>
-                <li><a ng-click="selected.item = items.LastName">LastName:{{items.LastName}}</a></li>
-                <li><a ng-click="selected.item = items.Email">E-Mail:{{items.Email}}</a></li>
+                <li class="labelData"><span>FirstName:</span><a ng-click="selected.item = items.FirstName">FirstName:{{items.FirstName}}</a></li>
+                <li class="labelData"><span>LastName:</span><a ng-click="selected.item = items.LastName">LastName:{{items.LastName}}</a></li>
+                <li class="labelData"><span>EMail:</span><a ng-click="selected.item = items.Email">E-Mail:{{items.Email}}</a></li>
             </ul>
+            -->
+
+            <table style="font-size:18px">
+                <tr>
+                    <td class="labelData">FirstName:</td> <td class="data" ng-click="selected.item = items.FirstName">{{items.FirstName}}</td>
+                </tr>
+                <tr>
+                    <td class="labelData">LastName:</td><td class="data" ng-click="selected.item = items.LastName">{{items.LastName}}</td>
+                </tr>
+                <tr>
+                    <td class="labelData">EMail:</td><td class="data" ng-click="selected.item = items.Email">{{items.Email}}</td>
+                </tr>
+            </table>
+            <br />
+            
             Selected: <b>{{ selected.item}}</b>
         </div>
         <div class="modal-footer">
@@ -29,6 +40,20 @@
             <button class="btn btn-primary" ng-click="cancel()">Cancel</button>
         </div>
     </script>
+
+    <style>
+        .labelData {
+            width:150px;
+            font-weight:bold;
+        }
+
+        .data
+        {
+            color:#245580;
+            cursor:pointer;
+        }
+
+    </style>
     <!--
     <button class="btn btn-default" ng-click="open()">Open me!</button>
     <button class="btn btn-default" ng-click="open('lg')">Large modal</button>

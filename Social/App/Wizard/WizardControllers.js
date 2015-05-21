@@ -27,12 +27,12 @@ app.config(function ($routeProvider, $locationProvider) {
 
 app.controller('Page1Controller', function ($scope) {
 
-    $scope.Title = 'Page1';
+    $scope.Title = 'Pedantic';
 
 });
 
 app.controller('Page2Controller', function ($scope) {
-    $scope.Title = "Page2";
+    $scope.Title = "Ostentatious";
 
 });
 
@@ -40,6 +40,29 @@ app.controller('Page3Controller', function ($scope) {
     $scope.Title = "Page3";
 
 });
+
+
+
+
+
+app.controller('DictionaryController', function ($scope, GetDefinition) {
+
+    $scope.word;
+
+    $scope.definitions = null;
+
+
+    $scope.txtChanged = function () {
+
+        GetDefinition.postData($scope.word).then(function (result) {
+            //alert("Sucusssfully Update + " + result.data.UserName);
+            $scope.definitions = result.data;
+            console.log($scope.definitions);
+        });
+    }
+
+});
+
 
 
 
