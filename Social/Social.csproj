@@ -377,7 +377,7 @@
     </Content>
     <None Include="Service References\CYDE\Weather.wsdl" />
     <Content Include="Views\CYDE\Index.cshtml" />
-    <Content Include="Views\Shared\_Dialog.cshtml" />
+    <None Include="Views\Shared\_Dialog.cshtml" />
     <Content Include="Views\Shared\_MenuButton.cshtml" />
     <None Include="Service References\DictionaryService\DictService.wsdl" />
     <Content Include="Service References\DictionaryService\Social.DictionaryService.Dictionary.datasource">

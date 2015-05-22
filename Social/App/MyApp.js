@@ -93,3 +93,59 @@ app.factory('GetDefinition', function ($http) {
 
 
 
+//----------DIALOG CONTOLLER---------------------------------------------------
+//-----------------------------------------------------------------------------
+app.factory('UserDialog', function ($modal,$log) {
+
+        return {
+            open: function (user) {
+
+                    var modalInstance = $modal.open({
+                        animation: true,
+                        templateUrl: 'myModalContent.html',
+                        controller: 'ModalInstanceCtrl',
+                        resolve: {
+                            items: function () {
+                                return user;
+                            }
+                        }
+                    });
+
+
+                
+
+                    modalInstance.result.then(function (selectedItem) {
+                        var selected = selectedItem;
+                    }, function () {
+                        $log.info('Modal dismissed at: ' + new Date());
+                        //alert("Dialog Closing");
+                    });
+
+            }
+    }
+    
+});
+
+
+
+app.controller('ModalInstanceCtrl', function ($scope, user) {
+    
+    
+   // $scope.user = new { FirstName: asdfasdfasdf, LastName: asdfasfd };
+
+    $scope.selected = {
+        item: $scope.user[0]
+    };
+
+    $scope.ok = function () {
+        //$modalInstance.close($scope.selected.item);        
+    };
+
+    $scope.cancel = function () {
+       // $modalInstance.dismiss('cancel');
+        
+    };
+});
+
+//-----------------------------------------------------------------------------
+//-----------------------------------------------------------------------------

@@ -9,6 +9,7 @@ using System.Data.Entity;
 using Microsoft.Owin.Security;
 using Authentication;
 using Microsoft.AspNet.Identity;
+using System.Threading.Tasks;
 
 namespace Social.Controllers
 {
@@ -36,11 +37,11 @@ namespace Social.Controllers
 
         [HttpGet]
         [Authorize]
-        public ActionResult UserProfile()
+        public async Task<ActionResult> UserProfile()
         {
             //UserProfile profile = context.UserProfile.Where(p => p.UserId == WebSecurity.CurrentUserId).SingleOrDefault();
             //string id = _userManager.FindByName(User.Identity.Name).;
-            ApplicationUser user = _userManager.FindByName(User.Identity.Name);
+            ApplicationUser user = await _userManager.FindByNameAsync (User.Identity.Name);
             //Response.Write(user.LastName);
             return View(user);
             //return View(profile);
@@ -94,9 +95,9 @@ namespace Social.Controllers
         }
 
 
-        public JsonResult GetProfile()
+        public async Task<JsonResult> GetProfile()
         {
-            var json = _userManager.FindByName(User.Identity.Name);
+            var json = await _userManager.FindByNameAsync(User.Identity.Name);
 
             return Json(json, JsonRequestBehavior.AllowGet);
         }

@@ -12,7 +12,7 @@ namespace Social.Controllers
     [RoutePrefix("api")]
     public class DictionaryApiController : ApiController
     {
-        
+
         private readonly DictServiceSoap _dictionaryService = null;
 
 

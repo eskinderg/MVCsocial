@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using Social.Models;
 using Authentication;
+using System.Threading.Tasks;
 
 namespace Social.Controllers
 {
@@ -20,11 +21,11 @@ namespace Social.Controllers
             this.context = dataContext;
         }
 
-        public ActionResult Index()
+        public  ActionResult Index()
         {
-            IEnumerable<AppUser> users = context.UserProfile;
+            //IEnumerable<AppUser> users =  context.UserProfile;
             
-            return View(users);
+            return View();
         }
 
         public ActionResult About()

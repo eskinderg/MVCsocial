@@ -1,5 +1,5 @@
 ﻿
-app.controller('DashboardController', function ($scope, theFactory) {
+app.controller('DashboardController', function ($scope, theFactory, UserDialog) {
 
     $scope.User = null;
     $scope.mySelections = [];
@@ -11,10 +11,15 @@ app.controller('DashboardController', function ($scope, theFactory) {
     theFactory.getData().then(function (result) {
 
         $scope.myData = result.data;
-        console.log(result);
+        //console.log(result);
 
     });
 
+
+    $scope.deleteThisRow = function (row) {
+        //$scope.open(row);
+        UserDialog.open(row);
+    }
 
     $scope.gridOptions = {
         data: 'myData',
@@ -27,7 +32,19 @@ app.controller('DashboardController', function ($scope, theFactory) {
                 /*{field: 'Id', displayName: 'UserId',width:90},*/
                 { field: 'FirstName', displayName: 'FirstName'},
                 { field: 'LastName', displayName: 'LastName'},
-                {field: 'Email', displayName: 'EMail'},
+                { field: 'Email', displayName: 'EMail' },
+                {
+                    field: 'Action',
+                    cellTemplate: '<div style="padding:5px;">' +
+                                        '<a style="color:#FF00B4;" ng-click="$event.stopPropagation(); deleteThisRow(row.entity);">Delete</a>' +
+                                   '</div>',
+                    width: 100,
+                    enableCellEdit: false,
+                    enableColumnResize: false,
+                    enableCellSelection: false,
+                    enableRowSelection:false
+
+                }
                 
             ]
 

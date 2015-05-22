@@ -9,6 +9,7 @@ using WebMatrix.Data;
 using Microsoft.AspNet.Identity;
 using Authentication;
 using Microsoft.Owin.Security;
+using System.Threading.Tasks;
 
 namespace Social.Controllers
 {
@@ -16,7 +17,6 @@ namespace Social.Controllers
     public class DashboardController : Controller
     {
         
-        //private IUserProfileContext context = null;
 
         private readonly IAuthenticationManager _authenticationManager;
         private readonly UserManager<ApplicationUser> _userManager;
@@ -26,7 +26,6 @@ namespace Social.Controllers
             IUserStore<ApplicationUser> userStore,
             IAuthenticationManager authenticationManager)
         {
-            //this.context = dataContext;
 
             _userManager = new UserManager<ApplicationUser>(userStore);
             _authenticationManager = authenticationManager;
@@ -35,22 +34,26 @@ namespace Social.Controllers
 
         public ActionResult Index()
         {
-            //IEnumerable<UserProfile> list = context.UserProfile;
 
-            IEnumerable<ApplicationUser> list = _userManager.Users;
-
-            return View(list);
+            return View();
         }
-
+// Separate Database Connection Needed ----------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------------------------------
         public JsonResult GetLastUser()
         {
 
             //List<AppUser> json = new List<AppUser>(); //context.UserProfile;
 
             //json.Add(new AppUser { UserName = "Jonny", LastName = "Begood" });
-            var json = _userManager.Users.ToList();
+
+
+            var json = _userManager.Users.ToList(); //Cause Async Error
             return Json(json, JsonRequestBehavior.AllowGet);
         }
+//---------------------------------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------------------------------
+//---------------------------------------------------------------------------------------------------------
 
         public JsonResult GetLastUserOnly()
         {

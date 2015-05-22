@@ -1,54 +1,19 @@
-﻿app.controller('FriendsController', function ($scope, theFactory, $modal, $log) {
+﻿app.controller('FriendsController', function ($scope, theFactory, UserDialog) {
 
     theFactory.getData().then(function (result) {
 
         $scope.Users = result.data;
     });
 
-
-
-
-    $scope.open = function (user) {
-
-        var modalInstance = $modal.open({
-            animation: true,
-            templateUrl: 'myModalContent.html',
-            controller: 'ModalInstanceCtrl',
-            resolve: {
-                items: function () {
-                    return user;
-                }
-            }
-        });
-
-
-        modalInstance.result.then(function (selectedItem) {
-            $scope.selected = selectedItem;
-        }, function () {
-            $log.info('Modal dismissed at: ' + new Date());
-        });
-
+    $scope.open = function (user)
+    {
+        UserDialog.open(user);
     }
 
-
+    $scope.cancel = function()
+    {
+        alert("cancelling");
+    }
 
 });
 
-
-
-app.controller('ModalInstanceCtrl', function ($scope, $modalInstance, user) {
-
-    $scope.user = user;
-
-    $scope.selected = {
-        item: $scope.user[0]
-    };
-
-    $scope.ok = function () {
-        $modalInstance.close($scope.selected.item);
-    };
-
-    $scope.cancel = function () {
-        $modalInstance.dismiss('cancel');
-    };
-});
