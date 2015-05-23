@@ -40,13 +40,13 @@ namespace Social.Controllers
 // Separate Database Connection Needed ----------------------------------------------------------------
 //-----------------------------------------------------------------------------------------------------
 //---------------------------------------------------------------------------------------------------------
-        public JsonResult GetLastUser()
+        //[Authorize (Roles="AdminEsk")]
+        public JsonResult GetUserList()
         {
 
             //List<AppUser> json = new List<AppUser>(); //context.UserProfile;
 
             //json.Add(new AppUser { UserName = "Jonny", LastName = "Begood" });
-
 
             var json = _userManager.Users.ToList(); //Cause Async Error
             return Json(json, JsonRequestBehavior.AllowGet);

@@ -51,6 +51,10 @@ namespace Social.Models
 
             container.RegisterType<DictServiceSoap, DictServiceSoapClient>(new InjectionConstructor("DictServiceSoap"));
 
+            
+            //container.RegisterType<AppUserDbContext>();
+
+
             //Dependecy for the webApicontrollers
             GlobalConfiguration.Configuration.DependencyResolver = new Unity.WebApi.UnityDependencyResolver(container);
             

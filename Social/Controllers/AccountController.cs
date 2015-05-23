@@ -113,14 +113,13 @@ namespace Social.Controllers
         }
 
         [ChildActionOnly]
-	    private void signIn(IAuthenticationManager authenticationmanager,
+	    private  void signIn(IAuthenticationManager authenticationmanager,
             UserManager<ApplicationUser> userManager,Login loginModel)
         {
             
-            ApplicationUser user = userManager.Find(loginModel.Username, loginModel.Password);
+            ApplicationUser user =  userManager.Find(loginModel.Username, loginModel.Password);
 
             
-
             //RoleManager<IdentityRole> rm = new
             //    RoleManager<IdentityRole>(new RoleStore<IdentityRole>(new ApplicationDbContext()));
 
@@ -131,7 +130,7 @@ namespace Social.Controllers
 
             if (user != null)
             {
-                var identity = userManager.CreateIdentity(user, DefaultAuthenticationTypes.ApplicationCookie);
+                var identity =  userManager.CreateIdentity(user, DefaultAuthenticationTypes.ApplicationCookie);
                     
                 authenticationmanager.SignIn(new AuthenticationProperties() { IsPersistent = true,ExpiresUtc=DateTime.Now.AddDays(20) }, identity);
                 FormsAuthentication.SetAuthCookie(identity.Name, true);

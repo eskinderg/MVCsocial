@@ -9,7 +9,7 @@ app.factory('theFactory', function ($http) {
             return $http(
                 {
                     method: "GET",
-                    url: "/Dashboard/GetLastUser",
+                    url: "/Dashboard/GetUserList",
                     cache: false
                 });
         }

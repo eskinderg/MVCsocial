@@ -32,7 +32,10 @@ namespace Social
 
             //WebSecurity.InitializeDatabaseConnection("DBConn", "User", "UserId", "Username", true);
 
-            Database.SetInitializer<Social.Models.UserProfileContext>(null);
+            //Database.SetInitializer<Social.Models.UserProfileContext>(null);
+            
+            Database.SetInitializer<AppUserDbContext>(null);
+
             Database.SetInitializer<ApplicationDbContext>(null);
             
         }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 
@@ -26,6 +27,14 @@ namespace Authentication
         
 
         public string ProfilePicture { get; set; }
+
+    }
+
+    public class AppUserDbContext : DbContext
+    {
+        public AppUserDbContext() : base("DBconn") { }
+
+        public DbSet<AppUser> Users { get; set; }
 
     }
 }
