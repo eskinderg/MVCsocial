@@ -30,11 +30,11 @@ namespace Authentication
 
     }
 
-    public class AppUserDbContext : DbContext
-    {
-        public AppUserDbContext() : base("DBconn") { }
+    //public class AppUserDbContext : DbContext
+    //{
+    //    public AppUserDbContext() : base("DBconn") { }
 
-        public DbSet<AppUser> Users { get; set; }
+    //    public DbSet<AppUser> Users { get; set; }
 
-    }
+    //}
 }

@@ -12,6 +12,7 @@ namespace Social.Controllers
 
 
         DictServiceSoap _dictionaryService = null;
+        public WizardController() { }
 
         public WizardController(DictServiceSoap dictionaryService)
         {

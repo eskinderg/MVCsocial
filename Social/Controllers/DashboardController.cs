@@ -16,20 +16,13 @@ namespace Social.Controllers
     [Authorize]
     public class DashboardController : Controller
     {
-        
 
-        private readonly IAuthenticationManager _authenticationManager;
-        private readonly UserManager<ApplicationUser> _userManager;
-        private readonly IUserStore<ApplicationUser> _userStore;
+        private ApplicationUserManager _userManager = null;
 
-        public DashboardController(IUserProfileContext dataContext, 
-            IUserStore<ApplicationUser> userStore,
-            IAuthenticationManager authenticationManager)
+        public DashboardController(ApplicationUserManager userManager)
         {
 
-            _userManager = new UserManager<ApplicationUser>(userStore);
-            _authenticationManager = authenticationManager;
-            _userStore = userStore;
+            this._userManager = userManager;
         }
 
         public ActionResult Index()
@@ -47,8 +40,9 @@ namespace Social.Controllers
             //List<AppUser> json = new List<AppUser>(); //context.UserProfile;
 
             //json.Add(new AppUser { UserName = "Jonny", LastName = "Begood" });
-
+            
             var json = _userManager.Users.ToList(); //Cause Async Error
+            //_userManager.GetRolesAsync()
             return Json(json, JsonRequestBehavior.AllowGet);
         }
 //---------------------------------------------------------------------------------------------------------

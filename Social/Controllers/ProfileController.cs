@@ -15,18 +15,14 @@ namespace Social.Controllers
 {
     public class ProfileController : Controller
     {
-        private readonly IAuthenticationManager _authenticationManager;
-        private readonly UserManager<ApplicationUser> _userManager;
-        //private readonly IUserProfileContext context = null;
-        private readonly IUserStore<ApplicationUser> _userStore;
 
-        public ProfileController(IUserProfileContext dataContext,IUserStore<ApplicationUser> userStore, 
-            IAuthenticationManager authenticationManager)
+        private ApplicationUserManager _userManager = null;
+
+        public ProfileController() { }
+
+        public ProfileController(ApplicationUserManager userManager)
         {
-            //this.context = dataContext;
-            _userManager = new UserManager<ApplicationUser>(userStore);
-            _authenticationManager = authenticationManager;
-            this._userStore = userStore;
+            this._userManager = userManager;
 
         }
         

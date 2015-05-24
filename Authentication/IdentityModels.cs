@@ -7,45 +7,40 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Owin;
 using Microsoft.Owin.Host;
+using Microsoft.AspNet.Identity;
+using System.Security.Claims;
 
 namespace Authentication
 {
-    public class ApplicationUser : IdentityUser      // Implements IUser
+    public class ApplicationUser : IdentityUser
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
+        public string Email { get; set; }
         public string Address { get; set; }
-        
+
+
+        public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
+        {
+            // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
+            var userIdentity = await manager.CreateIdentityAsync(this, DefaultAuthenticationTypes.ApplicationCookie);
+            // Add custom user claims here
+            return userIdentity;
+        }
     }
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
-        public ApplicationDbContext(): base("DBconn")
+        public ApplicationDbContext()
+            : base("DBconn", throwIfV1Schema: false)
         {
-           
+        } 
+
+        public static ApplicationDbContext Create()
+        {
+            return new ApplicationDbContext();
         }
-        /*
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-            
-        }*/
     }
-
-    //public class ApplicationRole : IdentityRole
-    //{
-
-    //    public ApplicationRole() : base() { }
-
-    //    public ApplicationRole(string name)
-    //        : base(name)
-    //    {
-    //        //this.Description = description;
-    //    }
-
-    //    //public virtual string Description { get; set; }
-
-    //}
-
 
 
 

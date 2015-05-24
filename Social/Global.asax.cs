@@ -27,16 +27,17 @@ namespace Social
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-
-            Bootstrapper.Initialise();
-
-            //WebSecurity.InitializeDatabaseConnection("DBConn", "User", "UserId", "Username", true);
-
-            //Database.SetInitializer<Social.Models.UserProfileContext>(null);
             
-            Database.SetInitializer<AppUserDbContext>(null);
+            
+            //Bootstrapper.Initialise();
 
-            Database.SetInitializer<ApplicationDbContext>(null);
+            ////WebSecurity.InitializeDatabaseConnection("DBConn", "User", "UserId", "Username", true);
+
+            ////Database.SetInitializer<Social.Models.UserProfileContext>(null);
+            
+            //Database.SetInitializer<AppUserDbContext>(null);
+
+            //Database.SetInitializer<ApplicationDbContext>(null);
             
         }
     }

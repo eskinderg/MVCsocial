@@ -11,19 +11,23 @@ namespace Social.Controllers
 {
     public class HomeController : Controller
     {
-        IUserProfileContext context = null;
+        ApplicationUserManager _userManager = null;
 
-        string inJectedText = string.Empty;
         
-        public HomeController(IHomeInjectable injectable,IUserProfileContext dataContext) 
+
+        public HomeController() { }
+
+        public HomeController(ApplicationUserManager userManager) 
         {
-            this.inJectedText = injectable.GetName();
-            this.context = dataContext;
+            //this.inJectedText = injectable.GetName();
+            //this.context = dataContext;
+            this._userManager = userManager;
         }
 
         public  ActionResult Index()
         {
             //IEnumerable<AppUser> users =  context.UserProfile;
+            
             
             return View();
         }
