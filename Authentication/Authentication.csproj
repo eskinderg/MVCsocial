@@ -107,7 +107,6 @@
   <ItemGroup>
     <Compile Include="ApplicationUserManager.cs" />
     <Compile Include="AppUser.cs" />
-    <Compile Include="CustomMembershipProvider.cs" />
     <Compile Include="IdentityModels.cs" />
     <Compile Include="Migrations\201505170123211_InitialCreate.cs" />
     <Compile Include="Migrations\201505170123211_InitialCreate.Designer.cs">
@@ -134,7 +133,13 @@
       <DependentUpon>201505241605004_owinEskMigrate1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Models.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UnitOfWork\UnitOfWork.cs" />
+    <Compile Include="UnitOfWork\UnitOfWorkManager.cs" />
+    <Compile Include="Users\UserMapping.cs" />
+    <Compile Include="Users\Repository.cs" />
+    <Compile Include="Users\WebDbContext.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

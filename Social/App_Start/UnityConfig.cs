@@ -8,6 +8,9 @@ using Authentication;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System.Data.Entity;
 using Social.Controllers;
+using System.Web.Http;
+using Authentication.Users;
+using Authentication.UnitOfWork;
 
 namespace Social.App_Start
 {
@@ -52,6 +55,13 @@ namespace Social.App_Start
             container.RegisterType<WeatherSoap,WeatherSoapClient>(new InjectionConstructor("WeatherSoap"));
 
             container.RegisterType<DictServiceSoap, DictServiceSoapClient>(new InjectionConstructor("DictServiceSoap"));
+
+            container.RegisterType<IUnitOfWorkManager, UnitOfWorkManager>();
+            container.RegisterType<IUserRepository, UserRepository>();
+            container.RegisterType<IWebDbContext, WebDbContext>();
+
+            //ForThe Dictionary Web API
+            GlobalConfiguration.Configuration.DependencyResolver = new Unity.WebApi.UnityDependencyResolver(container);
 
         }
     }

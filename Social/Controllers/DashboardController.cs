@@ -10,6 +10,8 @@ using Microsoft.AspNet.Identity;
 using Authentication;
 using Microsoft.Owin.Security;
 using System.Threading.Tasks;
+using Authentication.Users;
+using Authentication.UnitOfWork;
 
 namespace Social.Controllers
 {
@@ -17,13 +19,18 @@ namespace Social.Controllers
     public class DashboardController : Controller
     {
 
-        private ApplicationUserManager _userManager = null;
+        //private ApplicationUserManager _userManager = null;
+        //private readonly IUnitOfWorkManager _unitOfWorkManager = null;
+        //private readonly IUserRepository _userRepo = null;
 
-        public DashboardController(ApplicationUserManager userManager)
-        {
+        //public DashboardController(ApplicationUserManager userManager)
+        //{
 
-            this._userManager = userManager;
-        }
+        //    this._userManager = userManager;
+        //    //this._unitOfWorkManager = unitOfWorkManager;
+        //    //this._userRepo = userRepo;
+            
+        //}
 
         public ActionResult Index()
         {
@@ -34,27 +41,27 @@ namespace Social.Controllers
 //-----------------------------------------------------------------------------------------------------
 //---------------------------------------------------------------------------------------------------------
         //[Authorize (Roles="AdminEsk")]
-        public JsonResult GetUserList()
-        {
+        //public JsonResult GetUserList()
+        //{
 
-            //List<AppUser> json = new List<AppUser>(); //context.UserProfile;
 
-            //json.Add(new AppUser { UserName = "Jonny", LastName = "Begood" });
-            
-            var json = _userManager.Users.ToList(); //Cause Async Error
-            //_userManager.GetRolesAsync()
-            return Json(json, JsonRequestBehavior.AllowGet);
-        }
+        //    var json = _userManager.Users.ToList(); //Cause Async Error
+
+        //    //var json = _userRepo.GetAll();
+
+        //    //_userManager.GetRolesAsync()
+        //    return Json(json, JsonRequestBehavior.AllowGet);
+        //}
 //---------------------------------------------------------------------------------------------------------
 //---------------------------------------------------------------------------------------------------------
 //---------------------------------------------------------------------------------------------------------
 
-        public JsonResult GetLastUserOnly()
-        {
-            //var json = context.UserProfile.Where(e=>e.Id== WebSecurity.CurrentUserId);
-            //return Json(json, JsonRequestBehavior.AllowGet);
-            return Json(null);
-        }
+        //public JsonResult GetLastUserOnly()
+        //{
+        //    //var json = context.UserProfile.Where(e=>e.Id== WebSecurity.CurrentUserId);
+        //    //return Json(json, JsonRequestBehavior.AllowGet);
+        //    return Json(null);
+        //}
 
 	}
 }

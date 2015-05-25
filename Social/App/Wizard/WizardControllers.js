@@ -53,9 +53,8 @@ app.controller('DictionaryController', function ($scope, GetDefinition) {
 
 
     $scope.txtChanged = function () {
-
+        
         GetDefinition.postData($scope.word).then(function (result) {
-            //alert("Sucusssfully Update + " + result.data.UserName);
             $scope.definitions = result.data;
             console.log($scope.definitions);
         });

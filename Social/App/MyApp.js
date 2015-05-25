@@ -9,7 +9,8 @@ app.factory('theFactory', function ($http) {
             return $http(
                 {
                     method: "GET",
-                    url: "/Dashboard/GetUserList",
+                    //url: "/Dashboard/GetUserList",
+                    url: "api/getallusers",
                     cache: false
                 });
         }
@@ -68,12 +69,8 @@ app.factory('GetDefinition', function ($http) {
     fact.postData = function (word) {
         return $http(
             {
-                method: "POST",
-                url: "/WebApi/GetDefinition",
-                data:
-                    {
-                        word: word
-                    }
+                method: "GET",
+                url: "/api/define/"+ word 
             });
     }
 
