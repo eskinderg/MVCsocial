@@ -1,6 +1,6 @@
 ﻿
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "CYDE";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -11,3 +11,41 @@
 <h3>State: @ViewData["State"]</h3>
 <h3>Day Time High: @ViewBag.DayTimeHigh</h3>
 <h3>Morning Low: @ViewData["MorningLow"]</h3>
+
+@section scripts
+    {
+    <script>
+
+        $(document).ready(function () {
+            
+                    var window = $("#window"),
+                        undo = $("#undo")
+                                .bind("click", function() {
+                                    window.data("kendoWindow").open();
+                                    undo.hide();
+                                });
+
+                    var onClose = function() {
+                        undo.show();
+                    }
+
+                    if (!window.data("kendoWindow")) {
+                        window.kendoWindow({
+                            width: "600px",
+                            title: "Title Goes Here",
+                            actions: [
+                                "Pin",
+                                "Minimize",
+                                "Maximize",
+                                "Close"
+                            ],
+                            close: onClose
+                        });
+                    }
+                });
+    </script>
+}
+
+
+
+@Html.Partial("_kendoDialog")

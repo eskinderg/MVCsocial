@@ -11,6 +11,8 @@ using Social.Controllers;
 using System.Web.Http;
 using Authentication.Users;
 using Authentication.UnitOfWork;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace Social.App_Start
 {
@@ -48,10 +50,12 @@ namespace Social.App_Start
             // TODO: Register your types here
             // container.RegisterType<IProductRepository, ProductRepository>();
 
-            container.RegisterType<IWeatherService, WeatherService>(new InjectionConstructor(23145));
+            container.RegisterType<IWeatherService, WeatherService>(new InjectionConstructor(22151));
             container.RegisterType(typeof(IUserStore<ApplicationUser>), typeof(UserStore<ApplicationUser>));
             container.RegisterType<DbContext, ApplicationDbContext>(new HierarchicalLifetimeManager());
             
+            
+
             container.RegisterType<WeatherSoap,WeatherSoapClient>(new InjectionConstructor("WeatherSoap"));
 
             container.RegisterType<DictServiceSoap, DictServiceSoapClient>(new InjectionConstructor("DictServiceSoap"));
@@ -60,6 +64,10 @@ namespace Social.App_Start
             container.RegisterType<IUserRepository, UserRepository>();
             container.RegisterType<IWebDbContext, WebDbContext>();
 
+
+            IEnumerable<ContainerRegistration> list = container.Registrations;
+
+           
             //ForThe Dictionary Web API
             GlobalConfiguration.Configuration.DependencyResolver = new Unity.WebApi.UnityDependencyResolver(container);
 

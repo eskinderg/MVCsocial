@@ -30,8 +30,9 @@ namespace Social.Controllers
             this._userManager = userManager;
         }
 
-        [AllowAnonymous]
+
         // GET /api/definition
+        [AllowAnonymous]
         [Route("define/{word}")]
         public HttpResponseMessage Get(string word)
         {

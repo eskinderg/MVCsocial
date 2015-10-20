@@ -44,6 +44,18 @@ namespace Social
                       "~/Content/ui-bootstrap-csp.css"));
 
 
+            bundles.Add(new StyleBundle("~/Content/Kendo").Include(
+          "~/Content/Kendo/kendo.common.min.css",
+          "~/Content/Kendo/kendo.dataviz.default.min.css",
+          "~/Content/Kendo/kendo.dataviz.min.css",
+          "~/Content/Kendo/kendo.default.min.css",
+          "~/Content/Kendo/examples-offline.css"));
+
+
+
+            bundles.Add(new ScriptBundle("~/bundles/Kendo").Include(
+          "~/Scripts/Kendo/kendo.all.min.js"));
+
 
 
         }

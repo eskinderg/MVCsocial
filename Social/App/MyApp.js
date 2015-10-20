@@ -9,7 +9,6 @@ app.factory('theFactory', function ($http) {
             return $http(
                 {
                     method: "GET",
-                    //url: "/Dashboard/GetUserList",
                     url: "api/getallusers",
                     cache: false
                 });
